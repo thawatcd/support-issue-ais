@@ -144,7 +144,9 @@ Body: upstream connect error or disconnect/reset before headers. reset reason: c
 - Captured traffic between Envoy sidecar (127.0.0.6) and application container
 - Analyzed TCP flags and HTTP payload during 503 error occurrences
 
-**Findings**:
+**Findings**
+:<img width="1870" height="882" alt="wjvQ7qj18J" src="https://github.com/user-attachments/assets/cdea567b-15c3-4c6e-9ee8-416fc41b36fe" />
+
 
 ✅ **TCP dump confirms Istio debug logs exactly:**
 
@@ -169,6 +171,13 @@ Application → Envoy:  RST, ACK  (Connection terminated later)
 **Objective**: Investigate potential resource exhaustion or process management issues inside the application container.
 
 **Critical Finding**:
+
+
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/ae3f1b39-5918-4cc5-9bda-ab255e9b618d" />
+
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/57bba8fc-361f-4944-b2ce-392d533ef617" />
+
+
 
 🚨 **Approximately ~2000+ zombie/defunct `phantomjs` processes discovered**
 
@@ -405,6 +414,9 @@ While idle timeout mismatches can cause connection issues in some scenarios, thi
 
 **Objective**: Analyze Node.js runtime health to identify performance degradation or event loop blocking.
 
+<img width="1448" height="701" alt="event-loop-stat" src="https://github.com/user-attachments/assets/363a835c-4c0a-40f2-a242-b572ed2db97d" />
+
+
 **Metrics Monitored**:
 
 #### Event Loop Monitor
@@ -444,4 +456,5 @@ Based on Dynatrace metrics during 503 occurrences:
 
 
 ---
+
 
